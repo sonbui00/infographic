@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="row" style="margin-top: 30px">
 			<div class="col-md-8 col-md-offset-2">
-				{{ Form::open(array('action' => 'PostInfographic@postForm', 'class' => 'form-horizontal', 'role' => 'form', 'files' => true)) }}
+				{{ Form::open(array('action' => 'Infographic@postForm', 'class' => 'form-horizontal', 'role' => 'form', 'files' => true)) }}
 					<fieldset>
 						<legend>Post Infographic</legend>
 						@include('form/input', array('name' => 'title', 'type' => 'text', 'label' => 'Title', 'required' => 'required'))
