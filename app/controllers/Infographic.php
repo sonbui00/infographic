@@ -61,9 +61,9 @@ class Infographic extends Controller {
 		// $graphicImage->link_word_vi = asset(substr(self::IMG_WORD_VI_DIC, 7).$graphicImage->link_word_vi);
 
 		// In openshift host
-		$graphicImage->link_en = self::IMG_EN_DIC.$graphicImage->link_en;
-		$graphicImage->link_vi = self::IMG_VI_DIC.$graphicImage->link_vi;
-		$graphicImage->link_word_vi = self::IMG_WORD_VI_DIC.$graphicImage->link_word_vi;
+		$graphicImage->link_en = asset(self::IMG_EN_DIC.$graphicImage->link_en);
+		$graphicImage->link_vi = asset(self::IMG_VI_DIC.$graphicImage->link_vi);
+		$graphicImage->link_word_vi = asset(self::IMG_WORD_VI_DIC.$graphicImage->link_word_vi);
 
 	}
 
