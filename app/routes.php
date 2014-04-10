@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array('as' => 'homepage', function()
 {
-	return View::make('homepage', array('title' => "Home"));
-});
+	$graphics = GraphicImages::all();
+	return View::make('homepage', array('title' => "Home", 'graphics' => $graphics));
+}));
 
-Route::controller('infographic', 'PostInfographic');
+Route::controller('infographic', 'Infographic');
+
+Route::get('graphic/{id}', function ($id)
+{
+	return('hello');
+});
