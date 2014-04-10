@@ -1,0 +1,9 @@
+.mythumb {
+	margin-top: 20px;
+}
+
+a.fixed-button {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+}

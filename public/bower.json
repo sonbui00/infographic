@@ -1,0 +1,19 @@
+{
+  "name": "Lib",
+  "version": "0.0.0",
+  "authors": [
+    "Son Bui <sonbv00@gmail.com>"
+  ],
+  "description": "lib",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}
