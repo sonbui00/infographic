@@ -10,12 +10,32 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+/*
+	Homepage
+*/
 Route::get('/', array('as' => 'homepage', function()
 {
 	$graphics = GraphicImages::all();
 	return View::make('homepage', array('title' => "Home", 'graphics' => $graphics));
 }));
+
+/*
+	Admin page
+*/
+
+
+Route::controller('admin', 'AdminController');
+
+Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@getDataboard'));
+
+Route::filter('authAdmin', function()
+{
+	if (Auth::guest()) return Redirect::action('AdminController@getLogin');
+});
+
+/*
+
+*/
 
 Route::controller('infographic', 'Infographic');
 

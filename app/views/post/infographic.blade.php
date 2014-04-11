@@ -1,8 +1,7 @@
 @extends('main')
 
 @section('head') 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	@parent
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.1/css/jasny-bootstrap.min.css">
 @stop
@@ -44,10 +43,7 @@
 @stop
 
 @section('foot')
- 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	@parent
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.1/js/jasny-bootstrap.min.js"></script>
 @stop
