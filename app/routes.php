@@ -13,11 +13,7 @@
 /*
 	Homepage
 */
-Route::get('/', array('as' => 'homepage', function()
-{
-	$graphics = GraphicImages::all();
-	return View::make('homepage', array('title' => "Home", 'graphics' => $graphics));
-}));
+Route::get('/', array('as' => 'homepage', 'uses' => 'GraphicImageController@index'));
 
 /*
 	Admin page
@@ -31,13 +27,14 @@ Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@getDataboa
 Route::filter('authAdmin', function()
 {
 	if (Auth::guest()) return Redirect::action('AdminController@getLogin');
+
 });
 
 /*
 
 */
 
-Route::controller('infographic', 'Infographic');
+Route::controller('infographic', 'GraphicImageController');
 
 Route::get('graphic/{id}', function ($id)
 {

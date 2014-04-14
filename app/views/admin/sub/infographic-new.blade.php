@@ -17,13 +17,13 @@
 				<legend>Image upload</legend>
 				<div class="row">
 					<div class="col-md-4">
-						@include('form/imagefile', array('name' => 'image_en', 'label' => 'Image English', 'required' => 'required'))
+						@include('form/imagefile', array('name' => 'link_en', 'label' => 'Image English', 'required' => 'required'))
 					</div>
 					<div class="col-md-4">
-						@include('form/imagefile', array('name' => 'image_vi', 'label' => 'Image Vietnamese', 'required' => 'required'))
+						@include('form/imagefile', array('name' => 'link_vi', 'label' => 'Image Vietnamese', 'required' => 'required'))
 					</div>
 					<div class="col-md-4">
-						@include('form/imagefile', array('name' => 'image_word_vi', 'label' => 'Image word Vietnamese'))
+						@include('form/imagefile', array('name' => 'link_word_vi', 'label' => 'Image word Vietnamese'))
 					</div>
 				</div>
 			</fieldset>

@@ -23,7 +23,7 @@
 
 
   
-  <link rel="stylesheet" href="http://hoctudau.com/infographic/demo/e2/useragentmanExample.css" />
+  <!-- <link rel="stylesheet" href="http://hoctudau.com/infographic/demo/e2/useragentmanExample.css" /> -->
   <link rel="stylesheet" href="http://hoctudau.com/infographic/demo/e2/polyclip-animation-example1.css" />
   
  
@@ -62,7 +62,7 @@
 	<script src="http://hoctudau.com/infographic/demo/e2/sylvester.js"></script>
 	
 	<script src="http://hoctudau.com/infographic/demo/e2/polyclip.js"></script>
-    <script src="http://hoctudau.com/infographic/demo/e2/polyclip-animation-example1.js"></script>
+  <script src="http://hoctudau.com/infographic/demo/e2/polyclip-animation-example1.js"></script>
 
   
 </body>

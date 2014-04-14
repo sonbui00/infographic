@@ -62,7 +62,7 @@ class AdminController extends BaseController {
 
 	public function postNewInfographic()
 	{
-		with(new Infographic)->postForm();
+		return GraphicImageController::store(URL::action('AdminController@getNewInfographic')); 
 	}
 
 	

@@ -6,10 +6,23 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminController' => $baseDir . '/app/controllers/AdminController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'CreateGraphicImagesTable' => $baseDir . '/app/database/migrations/2014_04_10_111805_create_graphic_images_table.php',
+    'CreateRolesTable' => $baseDir . '/app/database/migrations/2014_04_11_033816_create_roles_table.php',
+    'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_04_11_033849_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
+    'GraphicImageController' => $baseDir . '/app/controllers/GraphicImageController.php',
+    'GraphicImages' => $baseDir . '/app/models/GraphicImages.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+    'Image' => $baseDir . '/app/sonbui/image/Image.php',
+    'ImageFace' => $baseDir . '/app/sonbui/image/ImageFacade.php',
+    'ImageServiceProvider' => $baseDir . '/app/sonbui/image/ImageServiceProvider.php',
+    'Infographic' => $baseDir . '/app/controllers/Infographic.php',
+    'SeedGraphicImagesTable' => $baseDir . '/app/database/migrations/2014_04_11_035746_seed_graphic_images_table.php',
+    'SeedRolesTable' => $baseDir . '/app/database/migrations/2014_04_11_035812_seed_roles_table.php',
+    'SeedUsersTable' => $baseDir . '/app/database/migrations/2014_04_11_035839_seed_users_table.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'User' => $baseDir . '/app/models/User.php',
