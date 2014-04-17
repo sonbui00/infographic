@@ -30,9 +30,9 @@
 
 @section('foot')
 	@parent
-	<script src="http://hoctudau.com/infographic/demo/e2/sylvester.js"></script>
+	{{ HTML::script('polyclip/sylvester.js') }}
 	
-	<script src="http://hoctudau.com/infographic/demo/e2/polyclip.js"></script>
+	{{ HTML::script('polyclip/polyclip.js') }}
 
 	{{	HTML::script('js/main.js')	}}
   	<script>
