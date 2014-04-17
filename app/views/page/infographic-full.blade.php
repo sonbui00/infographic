@@ -24,7 +24,7 @@
 
   
   <!-- <link rel="stylesheet" href="http://hoctudau.com/infographic/demo/e2/useragentmanExample.css" /> -->
-  <link rel="stylesheet" href="http://hoctudau.com/infographic/demo/e2/polyclip-animation-example1.css" />
+  {{ HTML::style('polyclip/polyclip-animation-example1.css') }}
   
  
   
@@ -59,10 +59,10 @@
 		<script src="http://hoctudau.com/infographic/demo/e2/html5.js"></script>
 	<![endif]-->
 	
-	<script src="http://hoctudau.com/infographic/demo/e2/sylvester.js"></script>
+	{{ HTML::script('polyclip/sylvester.js') }}
 	
-	<script src="http://hoctudau.com/infographic/demo/e2/polyclip.js"></script>
-  <script src="http://hoctudau.com/infographic/demo/e2/polyclip-animation-example1.js"></script>
+	{{ HTML::script('polyclip/polyclip.js') }}
+  {{ HTML::script('polyclip/polyclip-animation-example1.js') }}
 
   
 </body>
