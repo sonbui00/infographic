@@ -132,7 +132,7 @@ class GraphicImageController extends \BaseController {
 	{
 		$graphicImage = GraphicImages::find($id);
 		$this->getLink($graphicImage);
-		return View::make('graphic/view')->withImage($graphicImage);
+		return View::make('page.infographic-full')->withImage($graphicImage);
 	}
 
 	private function getLink(& $graphicImage) {
