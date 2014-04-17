@@ -44,6 +44,12 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('authAdmin', function()
+{
+	if (Auth::guest()) return Redirect::action('AdminController@getLogin');
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

@@ -65,5 +65,19 @@ class AdminController extends BaseController {
 		return GraphicImageController::store(URL::action('AdminController@getNewInfographic')); 
 	}
 
+	public function getEditInfographic($id)
+	{
+		return GraphicImageController::edit($id);
+	}
+
+	public function postUpdateInfographic($id)
+	{
+		return GraphicImageController::update($id);
+	}
+
+	public function getDeleteInfographic($id) {
+		return GraphicImageController::destroy($id);
+	}
+
 	
 }

@@ -91,10 +91,30 @@
         	}*/
         });
 
-        $('.tool-buttons .edit-item, .tool-buttons .view-item').click(function(e) {
-        	var url = "{{ URL::action('Infographic@getView', '') }}";
+        $('.tool-buttons .view-item').click(function(e) {
+        	var url = "{{ URL::action('GraphicImageController@getShow', '') }}";
         	var id = oTable.$('tr.row_selected').first().find('td:first').text();
         	window.open(url +'/'+ id, '_blank');
+        });
+
+        $('.tool-buttons .edit-item').click(function(e) {
+            var url = "{{ URL::action('AdminController@getEditInfographic', '') }}";
+            var id = oTable.$('tr.row_selected').first().find('td:first').text();
+            window.open(url +'/'+ id);
+        });
+
+        $('.tool-buttons .delete-item').click(function(e) {
+            var url = "{{ URL::action('AdminController@getDeleteInfographic', '') }}";
+            var id = oTable.$('tr.row_selected').first().find('td:first').text();
+            $.ajax({
+                url: url + '/' +  id,
+                success: function () {
+                    var anSelected = oTable.$('tr.row_selected');
+                    if ( anSelected.length !== 0 ) {
+                        oTable.fnDeleteRow( anSelected[0] );
+                    }
+                }
+            });
         });
 
 

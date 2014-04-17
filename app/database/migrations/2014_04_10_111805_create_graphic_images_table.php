@@ -22,6 +22,7 @@ class CreateGraphicImagesTable extends Migration {
 			$table->string('link_word_vi', 320);
 			$table->string('link_thumb', 320);
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

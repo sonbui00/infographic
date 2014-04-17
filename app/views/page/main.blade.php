@@ -10,7 +10,7 @@
 			<div class="col-md-8">
 				@yield('content')
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 sidebar-page">
 				@include('page.component.sidebar')
 			</div>
 		</div>

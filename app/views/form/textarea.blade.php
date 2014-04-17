@@ -3,6 +3,6 @@
 		{{$label}}	
 	</label>
 	<div class="col-sm-9">
-		<textarea name="{{$name}}" id="{{$name}}" class="form-control" rows="3" {{{ $required or '' }}}></textarea>
+		<textarea name="{{$name}}" id="{{$name}}" class="form-control" rows="3" {{{ $required or '' }}}>{{  $value or '' }}</textarea>
 	</div>
 </div>

@@ -24,11 +24,7 @@ Route::controller('admin', 'AdminController');
 
 Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@getDataboard'));
 
-Route::filter('authAdmin', function()
-{
-	if (Auth::guest()) return Redirect::action('AdminController@getLogin');
 
-});
 
 /*
 
@@ -39,4 +35,24 @@ Route::controller('infographic', 'GraphicImageController');
 Route::get('graphic/{id}', function ($id)
 {
 	return('hello');
+});
+
+/*
+	
+*/
+Route::get('tags', function()
+{
+	return json_encode(Tag::lists('name'));
+});
+
+
+// Test
+
+Route::get('test', function()
+{
+	if (($tag = Tag::where('name', '=', 'tag5')->first()) !== NULL) {
+		return $tag->id;
+	}
+	return 'none';
+
 });

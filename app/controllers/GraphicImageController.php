@@ -49,10 +49,26 @@ class GraphicImageController extends \BaseController {
 			$infographic->title       = Input::get('title');
 			$infographic->description = Input::get('description');
 			$infographic->save();
+			$tags = explode(',', Input::get('tags'));
+			self::processTags($infographic, $tags);
 			self::processImages($infographic->id);
 			return Redirect::action('AdminController@getNewInfographic');
 		} else {
 			return dd($validator->messages()->all());
+		}
+	}
+
+	private static function processTags($infographic, $tags)
+	{
+		foreach ($tags as $tag) {
+			if (($dbTag = Tag::where('name', '=', $tag)->first()) !== NULL) {
+				$infographic->tags()->attach($dbTag->id);
+			} else {
+				$newTag = new Tag;
+				$newTag->name = $tag;
+				$newTag->save();
+				$infographic->tags()->attach($newTag->id);
+			}
 		}
 	}
 
@@ -135,12 +151,23 @@ class GraphicImageController extends \BaseController {
 		if (Input::has('search')) {
 			$search = Input::get('search');
 			$graphics = GraphicImages::where('title', 'LIKE', '%'.$search.'%')->orWhere('description', 'LIKE', '%'.$search.'%')->paginate(10);
-			Input::flashOnly('search', 'email');
+			$graphics->appends(array('search' => $search));
+			Input::flashOnly('search');
 			return View::make('page.homepage', array('title' => "Search for ".$search, 'graphics' => $graphics));
 		} else {
 			return Redirect::route('homepage');
 		}
 		
+
+	}
+
+	public function getTag($tag = '') {
+		if (empty($tag)) {
+			return Redirect::route('homepage');
+		} else {
+			$graphics = Tag::where('name', '=', $tag)->first()->graphicImages()->paginate(10);
+			return View::make('page.homepage', array('title' => "Search for tag: ".$tag, 'graphics' => $graphics, 'tagselect' => $tag));
+		}
 
 	}
 
@@ -150,9 +177,14 @@ class GraphicImageController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public static function edit($id)
 	{
-		//
+		$graphic = GraphicImages::find($id);
+
+
+		return View::make('admin.sub.infographic-edit')
+			->withTitle('Edit')
+			->withGraphic($graphic);
 	}
 
 	/**
@@ -161,9 +193,38 @@ class GraphicImageController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public static function update($id)
 	{
-		//
+		$infographic = GraphicImages::find($id);
+
+
+		$infographic->title       = Input::get('title');
+		$infographic->description = Input::get('description');
+
+		if (Input::hasFile('link_en')) {
+			Input::file('link_en')->move(self::IMG_EN_DIC, $infographic->link_en);
+		}
+		$infographic->link_en      = self::updateImage($infographic->link_en, 'link_en', self::IMG_EN_DIC);
+		$infographic->link_vi      = self::updateImage($infographic->link_vi, 'link_vi', self::IMG_VI_DIC);
+		$infographic->link_word_vi = self::updateImage($infographic->link_word_vi, 'link_word_vi', self::IMG_WORD_VI_DIC);
+		$infographic->save();
+
+		return Redirect::route('admin');
+	}
+
+	private static function updateImage($oldName, $input_name, $path) {
+		if (Input::hasFile($input_name)) {
+			if (empty($oldName)) {
+				$image_name = Input::file($input_name)->getClientOriginalName().str_random(8).'.'.Input::file($input_name)->getClientOriginalExtension();
+				Input::file($input_name)->move($path, $image_name);
+				return $image_name;
+			} else {
+				Input::file($input_name)->move($path, $oldName);
+				return $oldName;
+			}
+		} else {
+			return $oldName;
+		}
 	}
 
 	/**
@@ -172,9 +233,9 @@ class GraphicImageController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public static function destroy($id)
 	{
-		//
+		return GraphicImages::destroy($id);
 	}
 
 }
