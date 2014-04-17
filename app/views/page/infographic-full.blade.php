@@ -51,7 +51,7 @@
 	     
      </div>
 
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	
 	<!-- Canvas and HTML5 polyfills Needed for IE 8 and under -->
 	<!--[if lt IE 9 ]>
